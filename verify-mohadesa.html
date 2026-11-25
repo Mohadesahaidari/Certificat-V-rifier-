@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101d35">
+  <title>Certificate Verification | Academy Roshd</title>
+  <style>
+    :root {
+      --navy: #101d35;
+      --navy-2: #1b2d4b;
+      --gold: #c6a45b;
+      --gold-light: #ead9ad;
+      --ink: #202b3b;
+      --muted: #687487;
+      --paper: #ffffff;
+      --bg: #f2f4f8;
+      --green: #16865b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 34px 16px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(198,164,91,.13), transparent 28%),
+        radial-gradient(circle at 90% 92%, rgba(16,29,53,.10), transparent 30%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .page { width: min(100%, 820px); }
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid #e5e8ee;
+      border-radius: 22px;
+      box-shadow: 0 22px 65px rgba(16,29,53,.12);
+    }
+    .top {
+      position: relative;
+      padding: 28px 34px 25px;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    }
+    .top::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+    }
+    .monogram {
+      width: 54px; height: 54px;
+      margin: 0 auto 12px;
+      display: grid; place-items: center;
+      border: 1px solid rgba(234,217,173,.8);
+      border-radius: 50%;
+      color: var(--gold-light);
+      font-family: Georgia, serif;
+      font-size: 23px;
+      letter-spacing: 1px;
+    }
+    .academy {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+    .subbrand {
+      margin: 7px 0 0;
+      color: #d4dbe7;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .content { padding: 42px 48px 34px; text-align: center; }
+    .eyebrow {
+      color: #9a7a39;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 12px 0 9px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 5vw, 39px);
+      font-weight: 500;
+      letter-spacing: .5px;
+    }
+    .intro {
+      max-width: 560px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .status {
+      width: fit-content;
+      margin: 25px auto 30px;
+      padding: 9px 16px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid #bfe4d2;
+      border-radius: 999px;
+      background: #effaf4;
+      color: #116b49;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+    .check {
+      width: 19px; height: 19px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 12px;
+      line-height: 1;
+    }
+    .recipient-label {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .recipient {
+      margin: 0;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 5vw, 37px);
+      font-weight: 600;
+    }
+    .course {
+      margin: 10px 0 0;
+      color: #9a7a39;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .rule {
+      width: 78px;
+      height: 2px;
+      margin: 28px auto;
+      background: var(--gold);
+    }
+    .details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+      text-align: left;
+    }
+    .detail {
+      min-height: 82px;
+      padding: 17px 18px;
+      border: 1px solid #e8ebf0;
+      border-radius: 12px;
+      background: #fbfcfe;
+    }
+    .detail span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+    .detail strong {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .statement {
+      max-width: 610px;
+      margin: 27px auto 0;
+      color: #566174;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+    .bottom {
+      padding: 19px 24px;
+      border-top: 1px solid #e9ecf1;
+      background: #fbfcfe;
+      text-align: center;
+    }
+    .bottom strong {
+      color: var(--navy);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .bottom p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 560px) {
+      body { padding: 15px 10px; }
+      .top { padding: 24px 18px 22px; }
+      .content { padding: 32px 19px 27px; }
+      .details { grid-template-columns: 1fr; gap: 10px; }
+      .detail { min-height: 72px; }
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .card { box-shadow: none; border-radius: 0; }
+      .page { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-label="Certificate verification record">
+      <header class="top">
+        <div class="monogram" aria-hidden="true">R</div>
+        <p class="academy">ACADEMY ROSHD</p>
+        <p class="subbrand">Learning • Growth • Achievement</p>
+      </header>
+
+      <div class="content">
+        <div class="eyebrow">Official Certificate Record</div>
+        <h1>Certificate Verification</h1>
+        <p class="intro">
+          This page presents the certificate details recorded by Academy Roshd.
+        </p>
+
+        <div class="status">
+          <span class="check" aria-hidden="true">✓</span>
+          CERTIFICATE VERIFIED
+        </div>
+
+        <p class="recipient-label">Certificate awarded to</p>
+        <p class="recipient">Mohadesa Heidari</p>
+        <p class="course">Web Design</p>
+
+        <div class="rule"></div>
+
+        <div class="details">
+          <div class="detail">
+            <span>Certificate Date</span>
+            <strong>10 September 2025</strong>
+          </div>
+          <div class="detail">
+            <span>Instructor / Supervisor</span>
+            <strong>Nora Zaree</strong>
+          </div>
+          <div class="detail">
+            <span>Issuing Institution</span>
+            <strong>Academy Roshd</strong>
+          </div>
+          <div class="detail">
+            <span>Field</span>
+            <strong>Web Design</strong>
+          </div>
+        </div>
+
+        <p class="statement">
+          This record confirms the certificate information stated above.
+          For any additional institutional confirmation, please contact Academy Roshd
+          through its official communication channels.
+        </p>
+      </div>
+
+      <footer class="bottom">
+        <strong>Web Designer</strong>
+        <p>ACADEMY ROSHD · CERTIFICATE RECORD</p>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
